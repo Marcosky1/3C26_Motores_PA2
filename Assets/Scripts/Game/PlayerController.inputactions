@@ -33,7 +33,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Sube y Baja",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -44,7 +44,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Sube y Baja",
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true

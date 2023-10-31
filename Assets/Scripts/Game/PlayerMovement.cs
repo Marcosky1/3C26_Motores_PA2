@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public KeyCode up;
     public KeyCode down;
-    private Rigidbody2D myRB;
+    public Rigidbody2D myRB;
     [SerializeField]
     private float speed;
     private float limitSuperior;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         SetMinMax();
     }
 
-    // Update is called once per frame
+    /* Update is called once per frame
     void Update()
     {
         if (Input.GetKey(up) && transform.position.y < limitSuperior)
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         {
             myRB.velocity = Vector2.zero;
         }
-    }
+    }*/
 
     public void OnMovement(InputAction.CallbackContext context)
     {
