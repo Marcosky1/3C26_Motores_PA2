@@ -1,0 +1,62 @@
+{
+    "name": "PlayerController",
+    "maps": [
+        {
+            "name": "GamePlay",
+            "id": "b6624077-d85c-4fca-af1c-2d5b2ffa1d26",
+            "actions": [
+                {
+                    "name": "Movimiento",
+                    "type": "Value",
+                    "id": "36276d5e-0a2e-42b2-805d-e3860f7d0d22",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "448aa85e-33e7-435f-a696-ae1f0caec359",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimiento",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "13395b8d-209f-40d0-a331-188eb9d1100e",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimiento",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "f6115cd6-d07a-41a6-8a85-d13663fe9ad1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movimiento",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Sube y Baja",
+            "bindingGroup": "Sube y Baja",
+            "devices": []
+        }
+    ]
+}

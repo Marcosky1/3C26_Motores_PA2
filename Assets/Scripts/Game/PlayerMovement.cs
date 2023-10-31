@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -36,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
         {
             myRB.velocity = Vector2.zero;
         }
+    }
+
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        float Direccion = context.ReadValue<float>();
+        myRB.position = new Vector2(transform.position.x,transform.position.y + Direccion);
     }
 
     void SetMinMax()
