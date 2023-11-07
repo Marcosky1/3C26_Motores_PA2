@@ -4,52 +4,52 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
-{
-    public KeyCode up;
-    public KeyCode down;
+{   
     public Rigidbody2D myRB;
-    [SerializeField]
-    private float speed;
-    private float limitSuperior;
-    private float limitInferior;
+    [SerializeField] private float speed;
     public int player_lives = 4;
     // Start is called before the first frame update
     void Start()
-    {
-        if (up == KeyCode.None) up = KeyCode.UpArrow;
-        if (down == KeyCode.None) down = KeyCode.DownArrow;
+    {     
         myRB = GetComponent<Rigidbody2D>();
         SetMinMax();
     }
 
-    /* Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKey(up) && transform.position.y < limitSuperior)
+        float translacion = 0;
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            myRB.velocity = new Vector2(0f, speed);
+            Debug.Log("UP");
+            translacion = 1;
         }
-        else if (Input.GetKey(down) && transform.position.y > limitInferior)
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            myRB.velocity = new Vector2(0f, -speed);
+            translacion = -1f;
+            Debug.Log("DOWN");
         }
         else
         {
-            myRB.velocity = Vector2.zero;
+            translacion = 0f;
         }
-    }*/
+
+        myRB.velocity = new Vector2(0, translacion * speed);
+    }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        float Direccion = context.ReadValue<float>();
-        myRB.position = new Vector2(transform.position.x,transform.position.y + Direccion);
-    }
+
+        Debug.Log("On Movement");
+        Debug.Log(context.ReadValue<float>());
+
+        float Direccion = context.ReadValue<float>() * speed;
+        transform.position = new Vector2(transform.position.x,transform.position.y + Direccion);
+    }   
 
     void SetMinMax()
     {
         Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        limitInferior = -bounds.y;
-        limitSuperior = bounds.y;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "Candy")
         {
             CandyGenerator.instance.ManageCandy(other.gameObject.GetComponent<CandyController>(), this);
+        }if(other.tag == "Enemy")
+        {
+            EnemyGenerator.instance.ManageEnemy(other.gameObject.GetComponent<EnemyController>(),this);
         }
     }
 }
