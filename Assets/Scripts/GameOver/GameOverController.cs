@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameOverController : MonoBehaviour
 {
+    public Puntaje puntaje;
+
     public Button btnPlay;
     // Start is called before the first frame update
     void Start()
